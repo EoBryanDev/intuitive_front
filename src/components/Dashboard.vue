@@ -1,6 +1,6 @@
 <template>
     <section id="dashContainer">
-        <DashNavbar @researchBar="setSearchContent" @typeResearch="setTypeOfSearch"/>
+        <DashNavbar :researchArray="researchArray" @researchBar="getData" />
         <main id="dashContent">
             <DataTable />
         </main>
@@ -21,18 +21,33 @@
         data(){
             return {
                 research: null,
-                typeResearch: null
+                typeResearch: null,
+                researchArray: []
             }
         },
         methods:{
-            setSearchContent(value){
-                this.research = value;
-                console.log(this.research);
+           async getData(search,field){
+                const req = await fetch('http://localhost:3000/jsondata');
+                const data = await req.json();
+
+                this.researchArray = data;
+         
+               this.researchFilter(search,field)   
             },
-            setTypeOfSearch(value){
-                this.typeResearch = value;
-                console.log(this.typeResearch)
-            }
+            researchFilter(value,type){              
+
+                let text = value ? `${value}` : ""
+                let i = type ? type : ""
+
+                if(text && i || text && i != ""){
+                    let regex = new RegExp(text)
+                    const pesquisa = this.researchArray.filter((n)=> n[i].match(regex))
+                    this.researchArray = pesquisa
+                    console.log(this.researchArray);
+                    return true;
+
+                }
+            },
         }
 
     }
