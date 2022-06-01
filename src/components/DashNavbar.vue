@@ -25,11 +25,15 @@
                             <option value="Representante">Representante</option>
                             <option value="Cargo Representante">Cargo Representante</option>
                         </select>
-        <button type="button" class="btn btn-primary modal-button" data-toggle="modal" data-target="#exampleModal" @click="$emit('researchBar',research,typeResearch)">
-            <img src="/img/search.svg" alt="" width="25">
-        </button>
+                        
+        <div>
+            <button type="button" class="btn btn-primary modal-button" data-toggle="modal" data-target="#exampleModal" @click="$emit('researchBar',research,typeResearch)">
+                <img src="/img/search.svg" alt="" width="25">
+            </button>
+            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#createModal">inserir</button>
+        </div>
         
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!--MODAL DE UPDATE E DELETE-->
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -41,7 +45,6 @@
                 <div class="modal-body">
                     <div >                      
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="clearFields">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                         <!--<button @click="$emit('researchBar',research,typeResearch)">Procurar</button>
                         <button @click="clearFields">Limpar Pesquisa</button>-->
                     </div>
@@ -72,11 +75,117 @@
                                 <td>{{filteredItem["Razão Social"]}}</td>
                                 <td v-if="filteredItem['Nome Fantasia']">{{filteredItem['Nome Fantasia']}}</td>
                                 <td v-else> <small class="text-warning">Dados não disponíveis </small></td>        
-                                <td><button><img src="/img/edit.png" alt="" width="15" ></button> <button @click="deleteData(filteredItem.id)"><img src="/img/bin.png" alt="" width="15"></button></td>                         
+                                <td><button class="btn btn-sm btn-warning"><img src="/img/edit.png" alt="" width="15" ></button> <button class="btn btn-sm btn-danger" @click="deleteData(filteredItem.id)"><img src="/img/bin.png" alt="" width="15"></button></td>                         
                             </tr>
                                  
                         </tbody>
                         </table>
+                </div>
+                <div class="modal-footer">
+                    
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!--MODAL DE CREATE-->
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Inserção de dados</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div >                      
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!--<button @click="$emit('researchBar',research,typeResearch)">Procurar</button>
+                        <button @click="clearFields">Limpar Pesquisa</button>-->
+                    </div>
+                </div>
+
+                <div class="modal-body">
+
+                   <form>
+                        <div class="form-group">
+                            <label for="registroANS">Registro ANS</label>
+                            <input type="text" class="form-control" id="registroANS" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cnpj">CNPJ</label>
+                            <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="razaoSocial">Razão Social</label>
+                            <input type="text" class="form-control" id="razaoSocial" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nomeFantasia">Nome Fantasia</label>
+                            <input type="text" class="form-control" id="nomeFantasia">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalidade">Modalidade</label>
+                            <input type="text" class="form-control" id="modalidade" placeholder="ex. Administradora" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="logradouro">Logradouro</label>
+                            <input type="text" class="form-control" id="logradouro" placeholder="ex. Rua, Avenida..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero">Número</label>
+                            <input type="text" class="form-control" id="numero" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" class="form-control" id="complemento" >
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" class="form-control" id="bairro" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control" id="cidade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="uf">UF</label>
+                            <input type="text" class="form-control" id="uf" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control" id="cep" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ddd">DDD</label>
+                            <input type="text" class="form-control" id="ddd" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">Telefone</label>
+                            <input type="text" class="form-control" id="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fax">FAX</label>
+                            <input type="text" class="form-control" id="fax" >
+                        </div>
+                        <div class="form-group">
+                            <label for="endEletronico">Endereço eletrônico</label>
+                            <input type="email" class="form-control" id="endEletronico" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rep">Representante</label>
+                            <input type="text" class="form-control" id="rep" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cargRep">Cargo Representante</label>
+                            <input type="text" class="form-control" id="cargRep" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataANS">Data Registro ANS</label>
+                            <input type="text" class="form-control" id="dataANS" required>
+                        </div>
+                       
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     
@@ -115,8 +224,12 @@
                  const req = await fetch(`http://localhost:3000/jsondata/${id}`,{
                      method: "DELETE"
                  });               
-            }
+            },
             //CREATING NOT WORKING YET
+            async insertData(){
+                
+            }
+            
             //READING IS WORKING
             //UPDATING NOT WORKING YET
             //DELETE IS WORKING
