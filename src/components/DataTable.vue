@@ -51,14 +51,14 @@
                                     <td>{{data["Endereço eletrônico"]}}</td>
                                     <td>{{data.Representante}}</td>
                                     <td>{{data["Cargo Representante"]}}</td>
-                                    <td>{{data["Data Registro ANS\""]}}</td>
+                                    <td>{{data["Data Registro ANS"]}}</td>
                                 </tr>      
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <Pagination :paginacao="totalPage()" @pageNumber="setPageNumber"/>
+        <Pagination :currentPage="currentPage" :paginacao="totalPage()" @pageNumber="setPageNumber"/>
     </div>
 </template>
 
@@ -72,10 +72,10 @@ import Pagination from "./Pagination.vue"
         data(){
             return{
                 datas : {},
-                elementPerPage: 120,
+                elementPerPage: 80,
                 totalElements: null,
                 currentData: [],
-                currentPage: 1,             
+                currentPage: 0,                 
             }
         },
         props:{
@@ -85,7 +85,7 @@ import Pagination from "./Pagination.vue"
             async getData(){
                 //data from "backend" 
 
-                const req = await fetch('http://localhost:3000/jsonarray/');
+                const req = await fetch('http://localhost:3000/jsondata/');
                 const data = await req.json();
                 this.datas = data;
 
@@ -99,7 +99,7 @@ import Pagination from "./Pagination.vue"
 
                 //-----                         
                this.setPageNumber(1)         
-               //this.researchFilter()   
+
             },
             totalPage(){
                 return Math.ceil(this.totalElements / this.elementPerPage)
@@ -114,22 +114,24 @@ import Pagination from "./Pagination.vue"
                 let init = ((this.currentPage * this.elementPerPage) - this.elementPerPage) < 0 ? 0 : (this.currentPage * this.elementPerPage) - this.elementPerPage ;
                 let end = (this.currentPage * this.elementPerPage);
 
-                let currentDataArray = []
-                for (let i = init; i < end; i++) {
-                    //this.currentData.push(this.datas[index][index]);
-                    currentDataArray.push(this.datas[i]);
-                }
-                this.currentData = currentDataArray;
+                this.currentData = this.datas.slice(init,end);
                  //----
+            },
+            arrayListDecision(){
+                const showedArray = []
+                if(this.visualizedData.length == 0){
+                    this.researchFilter("","")
+                    console.log(this.visualizedData)
+                    this.visualizedData = [];
+                }else{
+                    this.setPageNumber(2)
+                    console.log(this.currentData)
+                }
             },
             setPageNumber(value){
                 this.currentPage = value;
                 this.pushinNewSelection()
             },
-            researchFilter(){
-                const pesquisa = this.datas.filter((n)=> n["Razão Social"].match(/CAIXA/))
-                console.log(pesquisa)
-            }
         },
         mounted(){
             this.getData();
