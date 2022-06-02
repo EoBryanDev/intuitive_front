@@ -27,10 +27,10 @@
                         </select>
                         
         <div>
-            <button type="button" class="btn btn-primary modal-button" data-toggle="modal" data-target="#exampleModal" @click="$emit('researchBar',research,typeResearch)">
-                <img src="/img/search.svg" alt="" width="25">
+            <button type="button" class="btn btn-primary btn-sm m-1" data-toggle="modal" data-target="#exampleModal" @click="$emit('researchBar',research,typeResearch)">
+                <img src="/img/search.svg" alt="Search button" width="25">
             </button>
-            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#createModal">inserir</button>
+            <button type="button" class="btn btn-sm btn-success m-1" data-toggle="modal" data-target="#createModal"><img src="/img/edit.svg" alt="Edit button" width="25"></button>
         </div>
         
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!--MODAL DE UPDATE E DELETE-->
@@ -49,13 +49,7 @@
                         <button @click="clearFields">Limpar Pesquisa</button>-->
                     </div>
                 </div>
-                <div class="modal-body" v-show="research && typeResearch">
-                    <div v-show="researchArray.length == 0">
-                        <p>Nenhum dado foi encontrado</p>
-                    </div>
-                    <div v-show="researchArray == false">
-                        <p>Selecione alguma tipo de pesquisa</p>
-                    </div>
+                <div class="modal-body" v-show="research">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -459,9 +453,7 @@
                 this.research = "";
             },
             pegarId(id){
-                console.log(this.idAtual = id)
                 this.idAtual = id
-                console.log(this.researchArray[0]['Razão Social'])
             }
             ,
             //DELETE IS WORKING
@@ -590,8 +582,7 @@
 </script>
 
 <style scoped>
-    
-     .modal .modal-dialog { width: 1200px; } 
+
     nav {
         margin: 10px;
         display: flex;

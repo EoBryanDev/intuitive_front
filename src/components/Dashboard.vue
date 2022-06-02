@@ -45,24 +45,17 @@
                 let text = value ? `${value}` : ""
                 let i = type ? type : ""
                 
+               
 
                 if(text && i == true || text && i != ""){                   
-                    
-                    const filteredArray = this.researchArray.filter((data)=> data[i] === text)
-                    this.researchArray = filteredArray
+                    const filteredArray = this.researchArray.filter(data => {
+                        return data[i].toLowerCase().includes(text.toLowerCase())
+                    })
 
-                    //const filtro = filteredArray.filter(n => n["Razão Social"].match(/CAIXA/))
-                    /*const pesquisa = this.researchArray.filter( (n) => n[i].match(regex))
-                    //this.researchArray = pesquisa
-
-                    --------------------------REVER DEPOIS O PORQUÊ DO VUE NÃO ESTAR CONSEGUINDO LER O REGEX DO MATCH
-                    */
-                    console.log("ali")
-                    
+                    this.researchArray = filteredArray                    
 
                 } else {
                     this.researchArray = [];
-                    console.log("here")
                 }
             }
             
