@@ -69,20 +69,179 @@
                         </thead>
                         <tbody>
                             
-                            <tr v-for="(filteredItem,index) in researchArray" :key="index">                               
+                            <tr v-for="(filteredItem,index) in researchArray" :key="index" @mouseover="pegarId(filteredItem.id)">                      
                                 <td>{{filteredItem["Registro ANS"]}}</td>
                                 <td>{{filteredItem.CNPJ}}</td>
                                 <td>{{filteredItem["Razão Social"]}}</td>
                                 <td v-if="filteredItem['Nome Fantasia']">{{filteredItem['Nome Fantasia']}}</td>
                                 <td v-else> <small class="text-warning">Dados não disponíveis </small></td>        
-                                <td><button class="btn btn-sm btn-warning"><img src="/img/edit.png" alt="" width="15" ></button> <button class="btn btn-sm btn-danger" @click="deleteData(filteredItem.id)"><img src="/img/bin.png" alt="" width="15"></button></td>                         
+                                <td><button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#updateModal"><img src="/img/edit.png" alt="" width="15" ></button> <button class="btn btn-sm btn-danger" @click="deleteData(filteredItem.id)"><img src="/img/bin.png" alt="" width="15"></button></td>                         
                             </tr>
                                  
                         </tbody>
                         </table>
                 </div>
                 <div class="modal-footer">
-                    
+                     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!--MODAL DE UPDATE-->
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Atualização dos dados</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div >                      
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <!--<button @click="$emit('researchBar',research,typeResearch)">Procurar</button>
+                                    <button @click="clearFields">Limpar Pesquisa</button>-->
+                                </div>
+                            </div>
+
+                            <div class="modal-body">
+
+                            <form @submit="updateData(idAtual)">
+                                    <div class="form-row">
+                           <div class="col-2">
+                                <div class="form-group">
+                                    <label for="registroANS">Registro ANS</label>
+                                    <input type="text" class="form-control" id="registroANS" v-model="registroANS" required>
+                                </div>
+                           </div>
+                           <div class="col-3">
+                                <div class="form-group">
+                                    <label for="cnpj">CNPJ</label>
+                                    <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" v-model="cnpj" required>
+                                </div>
+                           </div>
+                           <div class="col">
+                                <div class="form-group">
+                                    <label for="razaoSocial">Razão Social</label>
+                                    <input type="text" class="form-control" id="razaoSocial" v-model="razaoSocial" required>
+                                </div>
+                           </div>
+                       </div>
+                       <div class="form-row">
+                           <div class="col">
+                                <div class="form-group">
+                                    <label for="nomeFantasia">Nome Fantasia</label>
+                                    <input type="text" class="form-control" v-model="nomeFantasia" id="nomeFantasia">
+                                </div>
+                           </div>
+                           <div class="col">
+                               <div class="form-group">
+                                    <label for="modalidade">Modalidade</label>
+                                    <input type="text" class="form-control" id="modalidade" placeholder="ex. Administradora" v-model="modalidade" required>
+                                </div>
+                           </div>
+                       </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="logradouro">Logradouro</label>
+                                    <input type="text" class="form-control" id="logradouro" placeholder="ex. Rua, Avenida..." v-model="logradouro" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="numero">Número</label>
+                                    <input type="text" class="form-control" id="numero" v-model="numero"  required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="complemento">Complemento</label>
+                                    <input type="text" class="form-control" id="complemento" v-model="complemento" >
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="bairro">Bairro</label>
+                                    <input type="text" class="form-control" id="bairro" v-model="bairro"  required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" class="form-control" id="cidade" v-model="cidade"  required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="uf">UF</label>
+                                    <input type="text" class="form-control" id="uf" v-model="uf" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" class="form-control" id="cep" v-model="cep" required>
+                                </div>
+                            </div>
+                        </div>             
+                        
+                        <div class="form-row">
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="ddd">DDD</label>
+                                    <input type="text" class="form-control" id="ddd" v-model="ddd" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="tel">Telefone</label>
+                                    <input type="text" class="form-control" id="tel" v-model="tel" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="fax">FAX</label>
+                                    <input type="text" class="form-control" id="fax" v-model="fax" >
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="endEletronico">Endereço eletrônico</label>
+                                    <input type="email" class="form-control" id="endEletronico" v-model="endEletronico" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">                           
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="rep">Representante</label>
+                                    <input type="text" class="form-control" id="rep" v-model="rep" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cargRep">Cargo Representante</label>
+                                    <input type="text" class="form-control" id="cargRep" v-model="cargRep" required>
+                                </div>     
+                            </div>                 
+                        </div>
+                        <div class="form-row">
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="dataANS">Registro ANS</label>
+                                    <input type="text" class="form-control" id="dataANS" v-model="dataANS" required>
+                                </div>
+                            </div>
+                        </div>               
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                            </div>
+                            <div class="modal-footer">
+                                
+                            </div>
+                            </div>
+                        </div>
+        </div>
                 </div>
                 </div>
             </div>
@@ -106,85 +265,139 @@
 
                 <div class="modal-body">
 
-                   <form @submit.prevent="insertData()">
-                        <div class="form-group">
-                            <label for="registroANS">Registro ANS</label>
-                            <input type="text" class="form-control" id="registroANS" v-model="registroANS" required>
+                   <form @submit="insertData()">
+                       <div class="form-row">
+                           <div class="col-2">
+                                <div class="form-group">
+                                    <label for="registroANS">Registro ANS</label>
+                                    <input type="text" class="form-control" id="registroANS" v-model="registroANS" required>
+                                </div>
+                           </div>
+                           <div class="col-3">
+                                <div class="form-group">
+                                    <label for="cnpj">CNPJ</label>
+                                    <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" v-model="cnpj" required>
+                                </div>
+                           </div>
+                           <div class="col">
+                                <div class="form-group">
+                                    <label for="razaoSocial">Razão Social</label>
+                                    <input type="text" class="form-control" id="razaoSocial" v-model="razaoSocial" required>
+                                </div>
+                           </div>
+                       </div>
+                       <div class="form-row">
+                           <div class="col">
+                                <div class="form-group">
+                                    <label for="nomeFantasia">Nome Fantasia</label>
+                                    <input type="text" class="form-control" v-model="nomeFantasia" id="nomeFantasia">
+                                </div>
+                           </div>
+                           <div class="col">
+                               <div class="form-group">
+                                    <label for="modalidade">Modalidade</label>
+                                    <input type="text" class="form-control" id="modalidade" placeholder="ex. Administradora" v-model="modalidade" required>
+                                </div>
+                           </div>
+                       </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="logradouro">Logradouro</label>
+                                    <input type="text" class="form-control" id="logradouro" placeholder="ex. Rua, Avenida..." v-model="logradouro" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="numero">Número</label>
+                                    <input type="text" class="form-control" id="numero" v-model="numero"  required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="complemento">Complemento</label>
+                                    <input type="text" class="form-control" id="complemento" v-model="complemento" >
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="cnpj">CNPJ</label>
-                            <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" v-model="cnpj" required>
+                        
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="bairro">Bairro</label>
+                                    <input type="text" class="form-control" id="bairro" v-model="bairro"  required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" class="form-control" id="cidade" v-model="cidade"  required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="uf">UF</label>
+                                    <input type="text" class="form-control" id="uf" v-model="uf" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" class="form-control" id="cep" v-model="cep" required>
+                                </div>
+                            </div>
+                        </div>             
+                        
+                        <div class="form-row">
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="ddd">DDD</label>
+                                    <input type="text" class="form-control" id="ddd" v-model="ddd" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="tel">Telefone</label>
+                                    <input type="text" class="form-control" id="tel" v-model="tel" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="fax">FAX</label>
+                                    <input type="text" class="form-control" id="fax" v-model="fax" >
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="endEletronico">Endereço eletrônico</label>
+                                    <input type="email" class="form-control" id="endEletronico" v-model="endEletronico" required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="razaoSocial">Razão Social</label>
-                            <input type="text" class="form-control" id="razaoSocial" v-model="razaoSocial" required>
+
+                        <div class="form-row">                           
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="rep">Representante</label>
+                                    <input type="text" class="form-control" id="rep" v-model="rep" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="cargRep">Cargo Representante</label>
+                                    <input type="text" class="form-control" id="cargRep" v-model="cargRep" required>
+                                </div>     
+                            </div>                 
                         </div>
-                        <div class="form-group">
-                            <label for="nomeFantasia">Nome Fantasia</label>
-                            <input type="text" class="form-control" v-model="nomeFantasia" id="nomeFantasia">
-                        </div>
-                        <div class="form-group">
-                            <label for="modalidade">Modalidade</label>
-                            <input type="text" class="form-control" id="modalidade" placeholder="ex. Administradora" v-model="modalidade" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="logradouro">Logradouro</label>
-                            <input type="text" class="form-control" id="logradouro" placeholder="ex. Rua, Avenida..." v-model="logradouro" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="numero">Número</label>
-                            <input type="text" class="form-control" id="numero" v-model="numero"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="complemento">Complemento</label>
-                            <input type="text" class="form-control" id="complemento" v-model="complemento" >
-                        </div>
-                        <div class="form-group">
-                            <label for="bairro">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" v-model="bairro"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cidade">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" v-model="cidade"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="uf">UF</label>
-                            <input type="text" class="form-control" id="uf" v-model="uf" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cep">CEP</label>
-                            <input type="text" class="form-control" id="cep" v-model="cep" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="ddd">DDD</label>
-                            <input type="text" class="form-control" id="ddd" v-model="ddd" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="tel">Telefone</label>
-                            <input type="text" class="form-control" id="tel" v-model="tel" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fax">FAX</label>
-                            <input type="text" class="form-control" id="fax" v-model="fax" >
-                        </div>
-                        <div class="form-group">
-                            <label for="endEletronico">Endereço eletrônico</label>
-                            <input type="email" class="form-control" id="endEletronico" v-model="endEletronico" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="rep">Representante</label>
-                            <input type="text" class="form-control" id="rep" v-model="rep" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cargRep">Cargo Representante</label>
-                            <input type="text" class="form-control" id="cargRep" v-model="cargRep" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="dataANS">Data Registro ANS</label>
-                            <input type="text" class="form-control" id="dataANS" v-model="dataANS" required>
-                        </div>
-                       
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-row">
+                            <div class="col-1">
+                                <div class="form-group">
+                                    <label for="dataANS">Registro ANS</label>
+                                    <input type="text" class="form-control" id="dataANS" v-model="dataANS" required>
+                                </div>
+                            </div>
+                        </div>               
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -193,6 +406,7 @@
                 </div>
             </div>
         </div>
+       
 
     </nav>
 </template>
@@ -222,7 +436,12 @@
                 endEletronico: null,
                 rep: null,
                 cargRep: null,
-                dataANS: null
+                dataANS: null,
+
+                toUpdate: {},
+                
+                idAtual : null,
+                alterado : false
 
             }
 
@@ -238,13 +457,73 @@
                 this.typeResearch = null;
                 this.research = "";
             },
+            pegarId(id){
+                console.log(this.idAtual = id)
+                this.idAtual = id
+            }
+            ,
             //DELETE IS WORKING
             async deleteData(id){
                  const req = await fetch(`http://localhost:3000/jsondata/${id}`,{
                      method: "DELETE"
                  });               
             },
-            //CREATING NOT WORKING YET
+            async updateData(id){
+
+                const data = {
+                    "Registro ANS": this.registroANS,
+                    "CNPJ": this.cnpj,
+                    "Razão Social": this.razaoSocial,
+                    "Nome Fantasia": this.nomeFantasia,
+                    "Modalidade": this.modalidade,
+                    "Logradouro": this.logradouro,
+                    "Número": this.numero,
+                    "Complemento": this.complemento,
+                    "Bairro": this.bairro,
+                    "Cidade": this.cidade,
+                    "UF": this.uf,
+                    "CEP": this.cep,
+                    "DDD": this.ddd,
+                    "Telefone": this.tel,
+                    "Fax": this.fax,
+                    "Endereço eletrônico": this.endEletronico,
+                    "Representante": this.rep,
+                    "Cargo Representante":this.cargRep,
+                    "Data Registro ANS": this.dataANS
+                };
+                const dataJson = JSON.stringify(data);
+
+                const req = await fetch(`http://localhost:3000/jsondata/${id}`,{
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json"},
+                    body: dataJson
+                });
+
+                const res = await req.json();
+                console.log(res);
+
+                this.registroANS = null;
+                this.cnpj= null;
+                this.razaoSocial= null;
+                this.nomeFantasia= null;
+                this.modalidade= null;
+                this.logradouro= null;
+                this.numero= null;
+                this.complemento= null;
+                this.bairro= null;
+                this.cidade= null;
+                this.uf= null;
+                this.cep= null;
+                this.ddd= null;
+                this.tel= null;
+                this.fax= null;
+                this.endEletronico= null;
+                this.rep= null;
+                this.cargRep= null;
+                this.dataANS= null;
+            }
+            ,
+            //CREATING IS WORKING
             async insertData(){
                 const data = {
                     "Registro ANS": this.registroANS,
@@ -300,10 +579,10 @@
                 this.dataANS= null;
 
             }
-            
-            //READING IS WORKING
             //UPDATING NOT WORKING YET
-            //DELETE IS WORKING
+            /*async updateData(){
+                
+            }*/
         }
     }
 </script>

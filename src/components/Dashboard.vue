@@ -27,36 +27,45 @@
         },
         methods:{
            async getData(search,field){
-                this.researchArray = [];
-                const req = await fetch('http://localhost:3000/jsondata');
+               try {
+                   const req = await fetch('http://localhost:3000/jsondata');
                 const data = await req.json();
 
-                this.researchArray = data;
-         
-               this.researchFilter(search,field)   
+                this.researchArray = data;            
+                this.researchFilter(search,field)   
+               } catch (error) {
+                   console.log(error.message)
+               }
+                
             },
-            researchFilter(value,type){              
 
+
+
+            researchFilter(value,type){           
                 let text = value ? `${value}` : ""
-
                 let i = type ? type : ""
-    //OS DADOS DE PESQUISA ESTÃO CHEANDO AQUI MAS O FILTER NÃO ESTÁ PEGANDO O QUE DEVERIA
-                if(text && i == true || text && i != ""){
-                    const regex = new RegExp(text)
-                    const pesquisa = this.researchArray.filter((n)=> n[i].match(regex))
-                    console.log(pesquisa)
-                    //
+                
+
+                if(text && i == true || text && i != ""){                   
                     
-                    this.researchArray = pesquisa
-                    console.log(this.researchArray);
+                    const filteredArray = this.researchArray.filter((data)=> data[i] === text)
+                    this.researchArray = filteredArray
+
+                    //const filtro = filteredArray.filter(n => n["Razão Social"].match(/CAIXA/))
+                    /*const pesquisa = this.researchArray.filter( (n) => n[i].match(regex))
+                    //this.researchArray = pesquisa
+
+                    --------------------------REVER DEPOIS O PORQUÊ DO VUE NÃO ESTAR CONSEGUINDO LER O REGEX DO MATCH
+                    */
                     console.log("ali")
                     
 
                 } else {
-                    console.log("here")
                     this.researchArray = [];
+                    console.log("here")
                 }
-            },
+            }
+            
         }
 
     }

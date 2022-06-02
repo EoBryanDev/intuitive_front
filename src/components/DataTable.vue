@@ -96,7 +96,6 @@ import Pagination from "./Pagination.vue"
 
                 //-----                         
                this.setPageNumber(1)         
-
             },
             totalPage(){
                 return Math.ceil(this.totalElements / this.elementPerPage)
