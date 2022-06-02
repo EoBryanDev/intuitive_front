@@ -78,14 +78,11 @@ import Pagination from "./Pagination.vue"
                 currentPage: 0,                 
             }
         },
-        props:{
-
-        },
         methods: {           
             async getData(){
                 //data from "backend" 
 
-                const req = await fetch('http://localhost:3000/jsondata/');
+                const req = await fetch('http://localhost:3000/jsondata');
                 const data = await req.json();
                 this.datas = data;
 

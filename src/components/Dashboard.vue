@@ -27,6 +27,7 @@
         },
         methods:{
            async getData(search,field){
+                this.researchArray = [];
                 const req = await fetch('http://localhost:3000/jsondata');
                 const data = await req.json();
 
@@ -37,15 +38,23 @@
             researchFilter(value,type){              
 
                 let text = value ? `${value}` : ""
-                let i = type ? type : ""
 
-                if(text && i || text && i != ""){
-                    let regex = new RegExp(text)
+                let i = type ? type : ""
+    //OS DADOS DE PESQUISA ESTÃO CHEANDO AQUI MAS O FILTER NÃO ESTÁ PEGANDO O QUE DEVERIA
+                if(text && i == true || text && i != ""){
+                    const regex = new RegExp(text)
                     const pesquisa = this.researchArray.filter((n)=> n[i].match(regex))
+                    console.log(pesquisa)
+                    //
+                    
                     this.researchArray = pesquisa
                     console.log(this.researchArray);
-                    return true;
+                    console.log("ali")
+                    
 
+                } else {
+                    console.log("here")
+                    this.researchArray = [];
                 }
             },
         }

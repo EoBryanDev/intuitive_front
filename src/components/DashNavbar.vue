@@ -69,7 +69,7 @@
                         </thead>
                         <tbody>
                             
-                            <tr v-for="(filteredItem,index) in researchArray" :key="index" @click="oi(filteredItem.id)">                               
+                            <tr v-for="(filteredItem,index) in researchArray" :key="index">                               
                                 <td>{{filteredItem["Registro ANS"]}}</td>
                                 <td>{{filteredItem.CNPJ}}</td>
                                 <td>{{filteredItem["Razão Social"]}}</td>
@@ -106,82 +106,82 @@
 
                 <div class="modal-body">
 
-                   <form>
+                   <form @submit.prevent="insertData()">
                         <div class="form-group">
                             <label for="registroANS">Registro ANS</label>
-                            <input type="text" class="form-control" id="registroANS" required>
+                            <input type="text" class="form-control" id="registroANS" v-model="registroANS" required>
                         </div>
                         <div class="form-group">
                             <label for="cnpj">CNPJ</label>
-                            <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" required>
+                            <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" v-model="cnpj" required>
                         </div>
                         <div class="form-group">
                             <label for="razaoSocial">Razão Social</label>
-                            <input type="text" class="form-control" id="razaoSocial" required>
+                            <input type="text" class="form-control" id="razaoSocial" v-model="razaoSocial" required>
                         </div>
                         <div class="form-group">
                             <label for="nomeFantasia">Nome Fantasia</label>
-                            <input type="text" class="form-control" id="nomeFantasia">
+                            <input type="text" class="form-control" v-model="nomeFantasia" id="nomeFantasia">
                         </div>
                         <div class="form-group">
                             <label for="modalidade">Modalidade</label>
-                            <input type="text" class="form-control" id="modalidade" placeholder="ex. Administradora" required>
+                            <input type="text" class="form-control" id="modalidade" placeholder="ex. Administradora" v-model="modalidade" required>
                         </div>
                         <div class="form-group">
                             <label for="logradouro">Logradouro</label>
-                            <input type="text" class="form-control" id="logradouro" placeholder="ex. Rua, Avenida..." required>
+                            <input type="text" class="form-control" id="logradouro" placeholder="ex. Rua, Avenida..." v-model="logradouro" required>
                         </div>
                         <div class="form-group">
                             <label for="numero">Número</label>
-                            <input type="text" class="form-control" id="numero" required>
+                            <input type="text" class="form-control" id="numero" v-model="numero"  required>
                         </div>
                         <div class="form-group">
                             <label for="complemento">Complemento</label>
-                            <input type="text" class="form-control" id="complemento" >
+                            <input type="text" class="form-control" id="complemento" v-model="complemento" >
                         </div>
                         <div class="form-group">
                             <label for="bairro">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" required>
+                            <input type="text" class="form-control" id="bairro" v-model="bairro"  required>
                         </div>
                         <div class="form-group">
                             <label for="cidade">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" required>
+                            <input type="text" class="form-control" id="cidade" v-model="cidade"  required>
                         </div>
                         <div class="form-group">
                             <label for="uf">UF</label>
-                            <input type="text" class="form-control" id="uf" required>
+                            <input type="text" class="form-control" id="uf" v-model="uf" required>
                         </div>
                         <div class="form-group">
                             <label for="cep">CEP</label>
-                            <input type="text" class="form-control" id="cep" required>
+                            <input type="text" class="form-control" id="cep" v-model="cep" required>
                         </div>
                         <div class="form-group">
                             <label for="ddd">DDD</label>
-                            <input type="text" class="form-control" id="ddd" required>
+                            <input type="text" class="form-control" id="ddd" v-model="ddd" required>
                         </div>
                         <div class="form-group">
                             <label for="tel">Telefone</label>
-                            <input type="text" class="form-control" id="tel" required>
+                            <input type="text" class="form-control" id="tel" v-model="tel" required>
                         </div>
                         <div class="form-group">
                             <label for="fax">FAX</label>
-                            <input type="text" class="form-control" id="fax" >
+                            <input type="text" class="form-control" id="fax" v-model="fax" >
                         </div>
                         <div class="form-group">
                             <label for="endEletronico">Endereço eletrônico</label>
-                            <input type="email" class="form-control" id="endEletronico" required>
+                            <input type="email" class="form-control" id="endEletronico" v-model="endEletronico" required>
                         </div>
                         <div class="form-group">
                             <label for="rep">Representante</label>
-                            <input type="text" class="form-control" id="rep" required>
+                            <input type="text" class="form-control" id="rep" v-model="rep" required>
                         </div>
                         <div class="form-group">
                             <label for="cargRep">Cargo Representante</label>
-                            <input type="text" class="form-control" id="cargRep" required>
+                            <input type="text" class="form-control" id="cargRep" v-model="cargRep" required>
                         </div>
                         <div class="form-group">
                             <label for="dataANS">Data Registro ANS</label>
-                            <input type="text" class="form-control" id="dataANS" required>
+                            <input type="text" class="form-control" id="dataANS" v-model="dataANS" required>
                         </div>
                        
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -202,8 +202,31 @@
         data(){
             return{
                 research: "",
-                typeResearch: null
+                typeResearch: null,
+
+                registroANS: null,
+                cnpj: null,
+                razaoSocial: null,
+                nomeFantasia: null,
+                modalidade: null,
+                logradouro: null,
+                numero: null,
+                complemento: null,
+                bairro: null,
+                cidade: null,
+                uf: null,
+                cep: null,
+                ddd: null,
+                tel: null,
+                fax: null,
+                endEletronico: null,
+                rep: null,
+                cargRep: null,
+                dataANS: null
+
             }
+
+            
         },
         props:{
             researchArray : Array
@@ -215,10 +238,6 @@
                 this.typeResearch = null;
                 this.research = "";
             },
-            //operações de crud ... ou seja, alterar, excluir
-            oi(value){
-                console.log("oi",value);
-            },
             //DELETE IS WORKING
             async deleteData(id){
                  const req = await fetch(`http://localhost:3000/jsondata/${id}`,{
@@ -227,7 +246,59 @@
             },
             //CREATING NOT WORKING YET
             async insertData(){
-                
+                const data = {
+                    "Registro ANS": this.registroANS,
+                    "CNPJ": this.cnpj,
+                    "Razão Social": this.razaoSocial,
+                    "Nome Fantasia": this.nomeFantasia,
+                    "Modalidade": this.modalidade,
+                    "Logradouro": this.logradouro,
+                    "Número": this.numero,
+                    "Complemento": this.complemento,
+                    "Bairro": this.bairro,
+                    "Cidade": this.cidade,
+                    "UF": this.uf,
+                    "CEP": this.cep,
+                    "DDD": this.ddd,
+                    "Telefone": this.tel,
+                    "Fax": this.fax,
+                    "Endereço eletrônico": this.endEletronico,
+                    "Representante": this.rep,
+                    "Cargo Representante":this.cargRep,
+                    "Data Registro ANS": this.dataANS
+                };
+
+                const dataJson = JSON.stringify(data);
+
+                const req = await fetch("http://localhost:3000/jsondata",{
+                    method: "POST",
+                    headers: { "Content-Type": "application/json"},
+                    body: dataJson
+                });
+
+                const res = await req.json();
+                console.log(res);
+
+                this.registroANS = null;
+                this.cnpj= null;
+                this.razaoSocial= null;
+                this.nomeFantasia= null;
+                this.modalidade= null;
+                this.logradouro= null;
+                this.numero= null;
+                this.complemento= null;
+                this.bairro= null;
+                this.cidade= null;
+                this.uf= null;
+                this.cep= null;
+                this.ddd= null;
+                this.tel= null;
+                this.fax= null;
+                this.endEletronico= null;
+                this.rep= null;
+                this.cargRep= null;
+                this.dataANS= null;
+
             }
             
             //READING IS WORKING
