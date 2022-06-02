@@ -2,7 +2,7 @@
 
 Neste projeto busquei realizar os desafios do projeto agregando algumas concepções ao proposto pela wireframe. Foram vários os desafios, mas tenho certeza que me superei e desenvolvi com cada um.
 
-Primeiro de tudo precisei baixar o arquivo.csv proposto no teste. Em razão ao formato do arquivo decidi usar conversores para json que entendi ser a melhor maneira de trabalhar com tabelas e listas e possibilitar a visualização dos dados. Para isso importei o arquivo no Google Sheets e substituí os ponto e virgula(;) por vírgulas. Desta maneira, baixei novamente o arquivo e criei um mini projeto em nodeJS para fazer a conversão do .csv para .json(Segue o link para visualiza-lo: ). Após isso criei instalei o JSON Server para subir esses dados na sua API Fake e de lá tirar os dados.
+Primeiro de tudo precisei baixar o arquivo.csv proposto no teste. Em razão ao formato do arquivo decidi usar conversores para json que entendi ser a melhor maneira de trabalhar com tabelas e listas e possibilitar a visualização dos dados. Para isso importei o arquivo no Google Sheets e substituí os ponto e virgula(;) por vírgulas. Desta maneira, baixei novamente o arquivo e criei um mini projeto em nodeJS para fazer a conversão do .csv para .json(Segue o link para visualiza-lo: github.com/EoBryanDev/IntuitiveTest_Frontend). Após isso criei instalei o JSON Server para subir esses dados na sua API Fake e de lá tirar os dados.
 ## Teste 1 - Interface de Leitura
 
 * O começo do projeto foi em realizar a estrutura de componentes e a estilização em CSS parecida com o modelo proposto.
