@@ -106,7 +106,7 @@
                            <div class="col-2">
                                 <div class="form-group">
                                     <label for="registroANS">Registro ANS</label>
-                                    <input type="text" class="form-control" id="registroANS" v-model="registroANS" required>
+                                    <input type="text" class="form-control" id="registroANS" v-model="registroANS"  required>
                                 </div>
                            </div>
                            <div class="col-3">
@@ -411,6 +411,7 @@
     </nav>
 </template>
 <script>
+   
     export default {
         name: "DashNavbar",
         data(){
@@ -460,6 +461,7 @@
             pegarId(id){
                 console.log(this.idAtual = id)
                 this.idAtual = id
+                console.log(this.researchArray[0]['Razão Social'])
             }
             ,
             //DELETE IS WORKING
