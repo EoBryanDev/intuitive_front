@@ -20,5 +20,5 @@ Primeiro de tudo precisei baixar o arquivo.csv proposto no teste. Em razão ao f
 
 ### Teste 3 - Servidor
 
-* Devido ao prazo não consegui explorar esse ponto do teste, visto que eu não tenho domínio pleno para realizar os desafios do teste 3 de maneira prática.
+* Devido ao prazo não consegui explorar esse ponto do teste, visto que eu não tenho domínio pleno para realizar os desafios do teste 3 de maneira prática. Mas tentei adicionar algumas funcionalidades com banco de dados mongoDB através do mongoDB Atlas, mongoose e criação de rotas com express, mas não tive sucesso na total implementação ( Veja em: github.com/EoBryanDev/IntuitiveTest_Frontend)
 
