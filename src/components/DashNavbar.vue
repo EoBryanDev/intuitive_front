@@ -337,7 +337,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="cep">CEP</label>
-                                    <input type="text" class="form-control" id="cep" v-model="cep" required>
+                                    <input type="text" class="form-control" id="cep" v-model="cep"  required>
                                 </div>
                             </div>
                         </div>             
@@ -346,7 +346,7 @@
                             <div class="col-1">
                                 <div class="form-group">
                                     <label for="ddd">DDD</label>
-                                    <input type="text" class="form-control" id="ddd" v-model="ddd" required>
+                                    <input type="number" class="form-control" id="ddd" step="1" v-model="ddd" required>
                                 </div>
                             </div>
                             <div class="col">
@@ -387,7 +387,7 @@
                             <div class="col-1">
                                 <div class="form-group">
                                     <label for="dataANS">Registro ANS</label>
-                                    <input type="text" class="form-control" id="dataANS" v-model="dataANS" required>
+                                    <input type="text" class="form-control" id="dataANS" v-model="dataANS"  maxlength="10" required>
                                 </div>
                             </div>
                         </div>               
@@ -405,7 +405,6 @@
     </nav>
 </template>
 <script>
-   
     export default {
         name: "DashNavbar",
         data(){
@@ -446,16 +445,13 @@
             researchArray : Array
         },      
         methods: {
-            /*researchBar(){
-                console.log(this.research);
-            }*/clearFields(){
+            clearFields(){
                 this.typeResearch = null;
                 this.research = "";
             },
             pegarId(id){
                 this.idAtual = id
-            }
-            ,
+            },                      
             //DELETE IS WORKING
             async deleteData(id){
                  const req = await fetch(`http://localhost:3000/jsondata/${id}`,{
