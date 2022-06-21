@@ -3763,7 +3763,6 @@
       "Data Registro ANS": "26/09/2006"
     },
     {
-<<<<<<< HEAD
       "id": "174",
       "Registro ANS": null,
       "CNPJ": null,
@@ -3784,103 +3783,11 @@
       "Representante": null,
       "Cargo Representante": null,
       "Data Registro ANS": null
-=======
-      "id": "171",
-      "Registro ANS": "416657",
-      "CNPJ": "07027515000124",
-      "Razão Social": "CAIXA ASSISTENCIAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
-      "Nome Fantasia": "CAARF",
-      "Modalidade": "Autogestão",
-      "Logradouro": "RUA ESPÍRITO SANTO",
-      "Número": "616",
-      "Complemento": "SALA 1.210   -  12.ª ANDAR",
-      "Bairro": "CENTRO",
-      "Cidade": "Belo Horizonte",
-      "UF": "MG",
-      "CEP": "30160030",
-      "DDD": "",
-      "Telefone": "",
-      "Fax": "",
-      "Endereço eletrônico": "caarf@caarf.org.br",
-      "Representante": "SEBASTIANA TEODORO MARTINS",
-      "Cargo Representante": "DIRETORA  PRESIDENTE",
-      "Data Registro ANS": "14/04/2008"
-    },
-    {
-      "id": "172",
-      "Registro ANS": "327557",
-      "CNPJ": "83937631000169",
-      "Razão Social": "CAIXA ASSISTENCIAL E BENEFICENTE DOS FUNCIONÁRIOS DA ACARESC",
-      "Nome Fantasia": "CASACARESC",
-      "Modalidade": "Autogestão",
-      "Logradouro": "Rod Admar Gonzaga",
-      "Número": "1347",
-      "Complemento": "SEDE",
-      "Bairro": "ITACORUBI",
-      "Cidade": "Florianópolis",
-      "UF": "SC",
-      "CEP": "88034901",
-      "DDD": "",
-      "Telefone": "",
-      "Fax": "",
-      "Endereço eletrônico": "casacaresc@casacaresc.org.br",
-      "Representante": "ÚRSULA MARIA LUDWIG MORAES",
-      "Cargo Representante": "GERENTE",
-      "Data Registro ANS": "21/12/1998"
-    },
-    {
-      "id": "173",
-      "Registro ANS": "347825",
-      "CNPJ": "01052203000194",
-      "Razão Social": "CAIXA ASSISTENCIAL UNIVERSITARIA DO RIO DE JANEIRO",
-      "Nome Fantasia": "CAURJ",
-      "Modalidade": "Autogestão",
-      "Logradouro": "AVENIDA VENCESLAU BRAS",
-      "Número": "71",
-      "Complemento": "",
-      "Bairro": "BOTAFOGO",
-      "Cidade": "Rio de Janeiro",
-      "UF": "RJ",
-      "CEP": "22290140",
-      "DDD": "21",
-      "Telefone": "25420708",
-      "Fax": "25420708",
-      "Endereço eletrônico": "administracao@caurj.com.br",
-      "Representante": "FATIMA VALERIA LIMA JACQUES",
-      "Cargo Representante": "PRESIDENTE",
-      "Data Registro ANS": "29/01/1999"
-    },
-    {
-      "id": "174",
-      "Registro ANS": "314251",
-      "CNPJ": "02172353000102",
-      "Razão Social": "CAIXA ASSISTENCIAL UNIVERSITÁRIA DO RIO GRANDE DO NORTE",
-      "Nome Fantasia": "CAURN",
-      "Modalidade": "Autogestão",
-      "Logradouro": "AV. SENADOR SALGADO FILHO",
-      "Número": "3000",
-      "Complemento": "UFRN - CENTRO DE CONVIVENCIA - SALA 20",
-      "Bairro": "LAGOA NOVA",
-      "Cidade": "Natal",
-      "UF": "RN",
-      "CEP": "59078900",
-      "DDD": "84",
-      "Telefone": "33113665",
-      "Fax": "",
-      "Endereço eletrônico": "caurn@caurn.com.br",
-      "Representante": "ELIANA MARIA DOS SANTOS",
-      "Cargo Representante": "SUPERINTENDENTE",
-      "Data Registro ANS": "29/12/1998"
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
     },
     {
       "id": "175",
       "Registro ANS": "352331",
-<<<<<<< HEAD
       "CNPJ": "62.231.527/0001-84",
-=======
-      "CNPJ": "62231527000184",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Razão Social": "CAIXA BENEFICENTE DOS FUNCIONARIOS DO BANCO DO ESTADO DE SÃO PAULO",
       "Nome Fantasia": "CABESP",
       "Modalidade": "Autogestão",
@@ -3890,15 +3797,9 @@
       "Bairro": "CENTRO",
       "Cidade": "São Paulo",
       "UF": "SP",
-<<<<<<< HEAD
       "CEP": "01014-915",
       "DDD": "(11)",
       "Telefone": "9 9999-9999",
-=======
-      "CEP": "01014915",
-      "DDD": "11",
-      "Telefone": "21851130",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Fax": "21851283",
       "Endereço eletrônico": "relacionamento.ans@cabesp.com.br",
       "Representante": "MARIA LUCIA ETTORE DO VALLE",
@@ -3908,33 +3809,19 @@
     {
       "id": "176",
       "Registro ANS": "414026",
-<<<<<<< HEAD
       "CNPJ": "78.304.672/0001-88",
-=======
-      "CNPJ": "78304672000188",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Razão Social": "CAIXA BENEFICENTE DOS FUNCIONÁRIOS DO GRUPO IGUAÇU",
       "Nome Fantasia": "CABEFI",
       "Modalidade": "Autogestão",
       "Logradouro": "BR 369, KM 88, RODOVIA MELLO PEIXOTO",
-<<<<<<< HEAD
       "Número": "000000",
-=======
-      "Número": "S/N",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Complemento": "",
       "Bairro": "PARQUE INDUSTRIAL",
       "Cidade": "Cornélio Procópio",
       "UF": "PR",
-<<<<<<< HEAD
       "CEP": "86300-000",
       "DDD": "(43)",
       "Telefone": "0 0000-0000",
-=======
-      "CEP": "86300000",
-      "DDD": "43",
-      "Telefone": "34011449",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Fax": "",
       "Endereço eletrônico": "convenio@iguacu.com.br",
       "Representante": "HAMILTON BAPTISTA JÚNIOR",
@@ -4032,33 +3919,19 @@
     {
       "id": "181",
       "Registro ANS": "412295",
-<<<<<<< HEAD
       "CNPJ": "03.702.977/0001-49",
-=======
-      "CNPJ": "03702977000149",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Razão Social": "CAIXA DE ASSISTÊNCIA À SAUDE DOS EMPREGADOS DA CODEVASF - CASEC",
       "Nome Fantasia": "CASEC",
       "Modalidade": "Autogestão",
       "Logradouro": "SGAN QD. 601 CONJ. I PARTE",
-<<<<<<< HEAD
       "Número": "215",
-=======
-      "Número": "SALA 215",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Complemento": "ED. MANOEL NOVAES",
       "Bairro": "ASA NORTE",
       "Cidade": "Brasília",
       "UF": "DF",
-<<<<<<< HEAD
       "CEP": "70830-019",
       "DDD": "(61)",
       "Telefone": "0 0000-0000",
-=======
-      "CEP": "70830019",
-      "DDD": "61",
-      "Telefone": "33236995",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Fax": "32231848",
       "Endereço eletrônico": "casec@codevasf.gov.br",
       "Representante": "SELMA FERNANDES RODRIGUES",
@@ -25362,21 +25235,14 @@
       "Data Registro ANS": "12/07/2021"
     },
     {
-<<<<<<< HEAD
       "id": "azEH00J",
       "Registro ANS": "352331",
       "CNPJ": "11.111.111/0001-11",
       "Razão Social": "LUANNY",
-=======
-      "Registro ANS": "324324",
-      "CNPJ": "343432",
-      "Razão Social": "BRYAN",
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
       "Nome Fantasia": "BRYAN",
       "Modalidade": "DEV",
       "Logradouro": "AV PAULISTA",
       "Número": "30",
-<<<<<<< HEAD
       "Complemento": "PAVIMENTO 4 - SALA 426",
       "Bairro": "VILA OLIMPIA",
       "Cidade": "SAO PAULO",
@@ -25389,21 +25255,6 @@
       "Representante": "LUANNY",
       "Cargo Representante": "CEO",
       "Data Registro ANS": "20/06/2022"
-=======
-      "Complemento": "4324",
-      "Bairro": "SP",
-      "Cidade": "SAO PAULO",
-      "UF": "SP",
-      "CEP": "1111111111",
-      "DDD": "11",
-      "Telefone": "9435413",
-      "Fax": "PA",
-      "Endereço eletrônico": "bryan@teste.com",
-      "Representante": "BRYAN",
-      "Cargo Representante": "CEO",
-      "Data Registro ANS": "01/06/2022",
-      "id": "hEfZXsd"
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
     }
   ]
 }

@@ -7,10 +7,7 @@
 </template>
 
 <script>
-<<<<<<< HEAD
  /* eslint-disable */
-=======
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
     export default {
         name: "Navbar"
 

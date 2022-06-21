@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable */
 import {createApp} from 'vue';
 import App from './App.vue';
@@ -36,10 +35,3 @@ app.component('Toast', Toast)
 app.directive('tooltip', Tooltip)
 
 app.mount('#app')
-=======
-import { createApp } from 'vue'
-import App from './App.vue'
-
-
-createApp(App).mount('#app')
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662

@@ -1,16 +1,10 @@
 <template>
     <div>
-<<<<<<< HEAD
 
         <div class="outer-wrapper">
             <div class="table-wrapper">
                 <div>
                     
-=======
-        <div class="outer-wrapper">
-            <div class="table-wrapper">
-                <div>
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
                     <table class="table table-sm">
                         <thead>
                             <tr>
@@ -41,35 +35,21 @@
                                     <td>{{data.CNPJ}}</td>
                                     <td>{{data["Razão Social"]}}</td>
                                     <td v-if="data['Nome Fantasia']">{{data['Nome Fantasia']}}</td>
-<<<<<<< HEAD
                                     <td v-else> <small class="text-danger">Dados não disponíveis </small></td>
-=======
-                                    <td v-else> <small class="text-warning">Dados não disponíveis </small></td>
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
                                     <td>{{data.Modalidade}}</td>
                                     <td>{{data.Logradouro}}</td>
                                     <td>{{data.Número}}</td>
                                     <td v-if="data.Complemento">{{data.Complemento}}</td>
-<<<<<<< HEAD
                                     <td v-else> <small class="text-danger">Dados não disponíveis </small></td>
-=======
-                                    <td v-else> <small class="text-warning">Dados não disponíveis </small></td>
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
                                     <td>{{data.Bairro}}</td>
                                     <td>{{data.Cidade}}</td>
                                     <td>{{data.UF}}</td>
                                     <td>{{data.CEP}}</td>
                                     <td>{{data.DDD}}</td>
                                     <td v-if="data.Telefone">{{data.Telefone}}</td>
-<<<<<<< HEAD
                                     <td v-else> <small class="text-danger">Dados não disponíveis </small></td>
                                     <td v-if="data.Fax">{{data.Fax}}</td>
                                     <td v-else> <small class="text-danger">Dados não disponíveis </small></td>
-=======
-                                    <td v-else> <small class="text-warning">Dados não disponíveis </small></td>
-                                    <td v-if="data.Fax">{{data.Fax}}</td>
-                                    <td v-else> <small class="text-warning">Dados não disponíveis </small></td>
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
                                     <td>{{data["Endereço eletrônico"]}}</td>
                                     <td>{{data.Representante}}</td>
                                     <td>{{data["Cargo Representante"]}}</td>
@@ -80,23 +60,17 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
                 
         <div class="base" id="base">
             <div class="spinner" id="spinner">
             </div>
         </div>
-=======
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
         <Pagination :currentPage="currentPage" :paginacao="totalPage()" @pageNumber="setPageNumber"/>
     </div>
 </template>
 
 <script>
-<<<<<<< HEAD
  /* eslint-disable */
-=======
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
 import Pagination from "./Pagination.vue"
     export default {
         name: "DataTable",
@@ -164,7 +138,6 @@ import Pagination from "./Pagination.vue"
             },
         },
         mounted(){
-<<<<<<< HEAD
             //mostrar na hora que montar a pagina o loader ex: const loader = true   
             setTimeout(() => {
                 document.getElementById('spinner').remove();
@@ -176,16 +149,12 @@ import Pagination from "./Pagination.vue"
             
             
 
-=======
-            this.getData();
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
 
         }
     }
 </script>
 
 <style scoped>
-<<<<<<< HEAD
     .base{
         background: rgba(173, 173, 173, 0.97);
         filter: blur();
@@ -214,8 +183,6 @@ import Pagination from "./Pagination.vue"
             transform: rotate(1turn);
         }
     }
-=======
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
 
     .outer-wrapper {
     margin: 10px;

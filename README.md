@@ -18,7 +18,6 @@ Primeiro de tudo precisei baixar o arquivo.csv proposto no teste. Em razão ao f
 * Já a opção de deletar realizei uma interação junto ao id no momento em que os dados são visualizados na tabela de pesquisas filtradas.
 * Como já estava utilizando a ferramento do JSON Server então qualquer alteração já era "persistida" dentro da fake API.
 
-<<<<<<< HEAD
 _________________
 
 ## Melhgorias para apresentação
@@ -31,9 +30,3 @@ Para a apresentação do dia 21/06, foi realizado alterações no código enviad
 * Foi adicionado no momento de remoção um Dialogo de Confirmação
 * Foi agregado ao projeto outra biblioteca para personalização do projeto e melhor experiência do usuário, sendo eles: Bootstrap e Prime Vue
 * Foi adicionado mascara de formatação aos campos do formulário, assim como as dicas de preenchimentos no evento de mouseover
-=======
-### Teste 3 - Servidor
-
-* Devido ao prazo não consegui explorar esse ponto do teste, visto que eu não tenho domínio pleno para realizar os desafios do teste 3 de maneira prática. Mas tentei adicionar algumas funcionalidades com banco de dados mongoDB através do mongoDB Atlas, mongoose e criação de rotas com express, mas não tive sucesso na total implementação ( Veja em: [github.com/EoBryanDev/IntuitiveTest_Frontend])
-
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
 <template>
   <div id="mix">
     <Navbar />
@@ -16,10 +13,7 @@ import Dashboard from './components/Dashboard.vue';
 import Footer from './components/Footer.vue';
 
 export default {
-<<<<<<< HEAD
    /* eslint-disable */
-=======
->>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
   name: 'App',
   components: {
     Navbar,
