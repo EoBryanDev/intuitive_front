@@ -10,9 +10,13 @@
     </nav>
 </template>
 <script>
+<<<<<<< HEAD
  /* eslint-disable */
     export default {
         
+=======
+    export default {
+>>>>>>> 50beefe0facea35a8d0329bc7694c0f0e0b12662
         name: "Pagination",
         props: {
             paginacao : Number,
